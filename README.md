@@ -6,6 +6,9 @@ A C++ 20 and CMake demo project showing how to use the nodesetexporter and open6
 system
 as shared libraries in your project.
 
+This version is used for nodesetexporter 1.1.0 and above.\
+For nodesetexporter version 1.0.0, use demo version v1.0.0.
+
 ## Dependencies
 
 OS: Linux (Debian, Ubuntu, ...)
@@ -17,7 +20,7 @@ To build you will need installed in your system:
 - cmake
 - GCC (C++20 features are available since GCC 8, but development was carried out on GCC 12).
   https://gcc.gnu.org/projects/cxx-status.html
-- pre-compiled and pre-installed open62541 version 1.3.x
+- pre-compiled and pre-installed open62541 version 1.3.x or 1.4.x
 - pre-compiled and pre-installed nodesetexporter
 
 Note: One of the nodesetexporter library header files uses ftm. It can be installed in various ways. In this case, it is
@@ -27,7 +30,7 @@ used as included code in the project in the 3rdparty folder.
 
 In the shell you need to run the following commands::
 
-```
+```bash
 git clone https://github.com/xydan83/open62541-nodeset-exporter-demo.git
 cd open62541-nodeset-exporter-demo/
 mkdir build
@@ -35,6 +38,10 @@ cd build
 cmake ..
 make -j
 ```
+
+(!) **As a rule, the master branch may differ from the release versions, so do not forget to switch using
+`git checkout tags/v1.x.x` after `cd open62541-nodeset-exporter-demo/`.**
+
 
 After this, an executable file `nodesetexporter-demo` will be created. You can execute the demo to
 export OPC UA nodeset from any starting node.

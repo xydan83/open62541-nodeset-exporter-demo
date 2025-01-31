@@ -22,7 +22,7 @@
 namespace apps::nodesetexporter::demo
 {
 using ::nodesetexporter::open62541::UATypesContainer;
-using StatusResults = ::nodesetexporter::common::statuses::StatusResults;
+using StatusResults = ::nodesetexporter::StatusResults;
 using LogLevel = ::nodesetexporter::common::LogLevel;
 using EncoderTypes = ::nodesetexporter::common::EncoderTypes;
 using ::nodesetexporter::ExportNodesetFromClient;
@@ -42,9 +42,9 @@ void Application::StartExport()
         // Browse nodes from start node
         auto client_result = browseoperations::GrabChildNodeIdsFromStartNodeId(m_client, start_node_id, export_node_id_list);
         std::cout << "Browsing operation from starting NodeID " << start_node_id_s << std::endl;
-        if (!UA_StatusCode_isGood(client_result))
+        if (client_result == StatusResults::Fail)
         {
-            throw std::runtime_error("Browsing error: " + std::string(UA_StatusCode_name(client_result)));
+            throw std::runtime_error("Browsing error: " + std::string(UA_StatusCode_name(client_result.GetReserveCode())));
         }
 
         node_ids_export.emplace(start_node_id_s, std::move(export_node_id_list));
