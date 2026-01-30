@@ -39,7 +39,7 @@ public:
         , m_client(nullptr)
         , m_client_endpointUrl(m_args[1])
     {
-        m_start_node_ids.emplace_back(std::string(m_args[2]));
+        m_start_node_ids.emplace_back(m_args[2]);
     }
 
     ~Application()

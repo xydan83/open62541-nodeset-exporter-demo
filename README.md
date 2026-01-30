@@ -6,7 +6,7 @@ A C++ 20 and CMake demo project showing how to use the nodesetexporter and open6
 system
 as shared libraries in your project.
 
-This version is used for nodesetexporter 1.1.0 and above.\
+This version is used for nodesetexporter 1.1.0 and 1.2.0.\
 For nodesetexporter version 1.0.0, use demo version v1.0.0.
 
 ## Dependencies
